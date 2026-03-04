@@ -115,7 +115,7 @@ export default function HomePage() {
           <p className="section-subtitle" style={{ textAlign: 'center' }}>Real-time metrics from the workshop</p>
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <AnimatedCounter end={stats.totalProjects} label="Projects Submitted" icon="🚀" />
-            <AnimatedCounter end={stats.totalLOC} label="Lines of Code Written" icon="💻" />
+            <AnimatedCounter end={stats.totalLOC} label="😊👏 Zero hand written lines of code 👏😊" icon="💻" />
           </div>
         </section>
       </ScrollReveal>

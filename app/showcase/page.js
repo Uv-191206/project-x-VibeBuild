@@ -21,7 +21,7 @@ const STATIC_PROJECTS = [
     {
         _id: '1',
         title: 'Digital Bridge Project',
-        userName: 'Yogi Patel',
+        userName: 'Yogi',
         domain: 'Cloud Services',
         problemStatement: 'Simplifying digital infrastructure for modern businesses',
         description: 'A robust cloud service platform designed to bridge the gap between traditional infrastructure and modern digital solutions.',
