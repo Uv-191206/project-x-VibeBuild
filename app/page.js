@@ -13,26 +13,42 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="page-container">
+    <div className="page-container" style={{ paddingTop: '5rem' }}>
       {/* Hero Section */}
-      <section style={{ textAlign: 'center', padding: '4rem 0 3rem', position: 'relative' }}>
+      <section style={{ textAlign: 'center', padding: '6rem 0 4rem', position: 'relative' }}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          style={{
+            background: 'white',
+            padding: '4rem 2rem',
+            borderRadius: '40px',
+            boxShadow: 'var(--clay-shadow-outer), var(--clay-shadow-inner)',
+            maxWidth: '900px',
+            margin: '0 auto',
+            border: '1px solid var(--border-glass)',
+            position: 'relative',
+            zIndex: 2
+          }}
         >
           <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-            style={{ fontSize: '4rem', marginBottom: '1rem' }}
+            animate={{
+              y: [0, -15, 0],
+              rotate: [0, 5, -5, 0]
+            }}
+            transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
+            style={{ fontSize: '5rem', marginBottom: '1.5rem', display: 'inline-block' }}
           >
-            ⚡
+            🚀
           </motion.div>
           <h1 style={{
-            fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontWeight: 900,
-            background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 40%, #a855f7 70%, #ec4899 100%)',
-            WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-            lineHeight: 1.1, marginBottom: '1rem',
+            fontSize: 'clamp(3rem, 8vw, 5rem)',
+            fontWeight: 900,
+            color: 'var(--accent-blue)',
+            lineHeight: 1,
+            marginBottom: '1.5rem',
+            letterSpacing: '-2px'
           }}>
             VibeBuild
           </h1>
@@ -40,116 +56,123 @@ export default function HomePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', maxWidth: 600, margin: '0 auto 2rem', lineHeight: 1.6 }}
+            style={{
+              fontSize: '1.4rem',
+              color: 'var(--text-secondary)',
+              maxWidth: 650,
+              margin: '0 auto 2.5rem',
+              lineHeight: 1.6,
+              fontWeight: 500
+            }}
           >
-            AI Driven Solutions & Vibe Coding Workshop — Build. Innovate. Showcase.
+            AI Driven Solutions & Vibe Coding Workshop — Master the art of building with AI.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}
+            style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}
           >
-            <Link href="/showcase" style={{
-              padding: '12px 32px', borderRadius: 14, border: '2px solid rgba(99,102,241,0.3)',
-              color: 'var(--accent-blue)', textDecoration: 'none', fontWeight: 600,
-              transition: 'all 0.3s', display: 'inline-flex', alignItems: 'center', gap: 8,
-              background: 'rgba(99,102,241,0.05)',
+            <Link href="/showcase" className="glow-btn" style={{
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 10,
+              fontSize: '1.1rem',
+              padding: '16px 40px'
             }}>
-              <Globe size={18} /> View Projects
+              <Zap size={20} fill="currentColor" /> Explore Showcase
             </Link>
           </motion.div>
         </motion.div>
 
-        {/* Floating decoration */}
+        {/* Floating Orbs - More "Clay-like" */}
         {[
-          { top: '10%', left: '5%', size: 60, delay: 0, color: 'rgba(99,102,241,0.1)' },
-          { top: '20%', right: '8%', size: 40, delay: 1, color: 'rgba(139,92,246,0.1)' },
-          { bottom: '15%', left: '10%', size: 50, delay: 2, color: 'rgba(236,72,153,0.08)' },
-          { bottom: '10%', right: '5%', size: 35, delay: 0.5, color: 'rgba(6,182,212,0.1)' },
+          { top: '5%', left: '10%', size: 120, delay: 0, color: '#a29bfe' },
+          { top: '15%', right: '12%', size: 80, delay: 1, color: '#74b9ff' },
+          { bottom: '10%', left: '15%', size: 100, delay: 2, color: '#fab1a0' },
+          { bottom: '20%', right: '10%', size: 70, delay: 0.5, color: '#55efc4' },
         ].map((orb, i) => (
           <motion.div
             key={i}
-            animate={{ y: [0, -20, 0], rotate: [0, 180, 360] }}
-            transition={{ repeat: Infinity, duration: 6 + i, delay: orb.delay, ease: 'easeInOut' }}
+            animate={{
+              y: [0, -40, 0],
+              x: [0, 20, 0],
+              scale: [1, 1.1, 1]
+            }}
+            transition={{ repeat: Infinity, duration: 8 + i, delay: orb.delay, ease: 'easeInOut' }}
             style={{
-              position: 'absolute', ...orb, width: orb.size, height: orb.size,
-              borderRadius: '50%', background: orb.color, filter: 'blur(1px)',
+              position: 'absolute',
+              ...orb,
+              width: orb.size,
+              height: orb.size,
+              borderRadius: '50%',
+              background: orb.color,
+              opacity: 0.15,
+              filter: 'blur(40px)',
+              zIndex: 1
             }}
           />
         ))}
       </section>
 
-      {/* Features */}
+      {/* Features Grid */}
       <ScrollReveal>
-        <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
-          {[
-            { icon: <Code2 size={28} />, title: 'Build Projects', desc: 'Submit your AI-driven solutions with GitHub integration' },
-            { icon: <Brain size={28} />, title: 'AI Assistance', desc: 'Get help from our AI chatbot for coding and debugging' },
-            { icon: <Users size={28} />, title: 'Team Collaboration', desc: 'Work with your team on assigned domains' },
-            { icon: <Trophy size={28} />, title: 'Showcase & Win', desc: 'Present your projects and earn certificates' },
-          ].map((feature, i) => (
-            <GlassCard key={i} style={{ textAlign: 'center', padding: '2rem' }}>
-              <motion.div
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                style={{
-                  width: 56, height: 56, borderRadius: 16, margin: '0 auto 1rem',
-                  background: 'linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.1))',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: 'var(--accent-blue)',
-                }}
-              >
-                {feature.icon}
-              </motion.div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: 8 }}>{feature.title}</h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.5 }}>{feature.desc}</p>
-            </GlassCard>
-          ))}
-        </section>
+        <div style={{ marginBottom: '6rem' }}>
+          <h2 className="section-title" style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '3rem', color: 'var(--accent-blue)' }}>Why VibeBuild?</h2>
+          <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+            {[
+              { icon: <Code2 size={32} />, title: 'Prompt Engineering', desc: 'Learn to talk to AI and get pixel-perfect results every time.' },
+              { icon: <Brain size={32} />, title: 'Deep Intelligence', desc: 'Integrate LLMs into your core application logic seamlessly.' },
+              { icon: <Users size={32} />, title: 'Collaborative Vibe', desc: 'Build with others in a high-energy, AI-first environment.' },
+              { icon: <Trophy size={32} />, title: 'Premium Assets', desc: 'Get access to high-res mockups and professional templates.' },
+            ].map((feature, i) => (
+              <GlassCard key={i} style={{ textAlign: 'center', padding: '3rem 2rem' }}>
+                <motion.div
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  style={{
+                    width: 72, height: 72, borderRadius: '24px', margin: '0 auto 1.5rem',
+                    background: '#f0f4ff',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: 'var(--accent-blue)',
+                    boxShadow: 'var(--clay-shadow-inner)'
+                  }}
+                >
+                  {feature.icon}
+                </motion.div>
+                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: 12, color: 'var(--text-primary)' }}>{feature.title}</h3>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: 1.6 }}>{feature.desc}</p>
+              </GlassCard>
+            ))}
+          </section>
+        </div>
       </ScrollReveal>
 
       {/* Live Stats */}
       <ScrollReveal delay={0.2}>
-        <section style={{ marginBottom: '3rem' }}>
-          <h2 className="section-title" style={{ textAlign: 'center' }}>📊 Live Workshop Stats</h2>
-          <p className="section-subtitle" style={{ textAlign: 'center' }}>Real-time metrics from the workshop</p>
-          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <AnimatedCounter end={stats.totalProjects} label="Projects Submitted" icon="🚀" />
-            <AnimatedCounter end={stats.totalLOC} label="😊👏 Zero hand written lines of code 👏😊" icon="💻" />
+        <section style={{ marginBottom: '6rem' }}>
+          <h2 className="section-title" style={{ textAlign: 'center', color: 'var(--accent-blue)' }}>📊 Global Impact</h2>
+          <p className="section-subtitle" style={{ textAlign: 'center', fontWeight: 500 }}>The workshop by the numbers</p>
+          <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <AnimatedCounter end={stats.totalProjects} label="Innovative Apps" icon="✨" />
+            <AnimatedCounter end={stats.totalLOC} label="Generated Lines" icon="🤖" />
           </div>
         </section>
       </ScrollReveal>
-
-      {/* Domains */}
-      <ScrollReveal delay={0.3}>
-        <section style={{ marginBottom: '3rem' }}>
-          <h2 className="section-title" style={{ textAlign: 'center' }}>🧠 Workshop Domains</h2>
-          <p className="section-subtitle" style={{ textAlign: 'center' }}>Explore the AI domains for your projects</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
-            {[
-              { name: 'Healthcare AI', icon: '🏥', desc: 'AI solutions for healthcare and medical diagnostics' },
-              { name: 'Agriculture AI', icon: '🌾', desc: 'Smart farming and crop management with AI' },
-              { name: 'Smart Cities', icon: '🏙️', desc: 'Urban intelligence and infrastructure optimization' },
-              { name: 'Education Tech', icon: '📚', desc: 'AI-powered learning and educational tools' },
-            ].map((domain, i) => (
-              <GlassCard key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.25rem' }}>
-                <span style={{ fontSize: '2rem' }}>{domain.icon}</span>
-                <div>
-                  <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: 4 }}>{domain.name}</h3>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', margin: 0 }}>{domain.desc}</p>
-                </div>
-              </GlassCard>
-            ))}
-          </div>
-        </section>
-      </ScrollReveal>
-
-
 
       {/* Footer */}
-      <footer style={{ textAlign: 'center', padding: '2rem 0', borderTop: '1px solid var(--border-glass)', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-        <p>⚡ VibeBuild — AI Driven Solutions & Vibe Coding Workshop</p>
-        <p style={{ marginTop: 4 }}>Built with Next.js, Tailwind CSS & Framer Motion</p>
+      <footer style={{
+        textAlign: 'center',
+        padding: '4rem 0',
+        marginTop: '4rem',
+        borderTop: '2px solid var(--border-glass)',
+        color: 'var(--text-secondary)',
+        background: 'rgba(255,255,255,0.5)',
+        borderRadius: '40px 40px 0 0'
+      }}>
+        <div style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--accent-blue)', marginBottom: '1rem' }}>⚡ VibeBuild</div>
+        <p style={{ fontWeight: 600 }}>The New Era of AI-Driven Development</p>
+        <p style={{ marginTop: 8, opacity: 0.7 }}>Powered by Claymorphism & Next.js</p>
       </footer>
     </div>
   );

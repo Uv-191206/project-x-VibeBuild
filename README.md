@@ -1,6 +1,6 @@
 # 🚀 VibeBuild — AI Driven Solutions & Vibe Coding
 
-A modern, animated workshop platform built for hackathon-style AI workshops. Participants log in individually, form their own teams, submit projects, get AI-powered guidance, and showcase their work — all from one beautiful dashboard.
+A premium, interactive workshop platform renovated with a **Claymorphism** aesthetic. Built for hackathon-style AI workshops, it features soft 3D UI elements, tactile interactions, and a modern 'Outfit' typography. Participants can manage teams, submit projects, and showcase their work from a stunning 3D dashboard.
 
 **Main Repository:** [https://github.com/Uv-191206/project-x-VibeBuild.git](https://github.com/Uv-191206/project-x-VibeBuild.git)  
 **Live Platform:** [https://project-x-vibe-build.vercel.app/](https://project-x-vibe-build.vercel.app/)
@@ -9,7 +9,7 @@ A modern, animated workshop platform built for hackathon-style AI workshops. Par
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss)
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-Animations-FF0055?logo=framer)
-![MongoDB](https://img.shields.io/badge/MongoDB-Optional-47A248?logo=mongodb)
+![Aesthetic](https://img.shields.io/badge/Theme-Claymorphism-blue?style=flat&color=4834d4)
 
 ---
 

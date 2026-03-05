@@ -270,32 +270,33 @@ export default function ChatBot() {
         <>
             {/* Toggle Button */}
             <motion.button
-                whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.1, y: -4 }} whileTap={{ scale: 0.95 }}
                 onClick={() => setOpen(!open)}
                 style={{
-                    position: 'fixed', bottom: 24, right: 24, zIndex: 9998,
-                    width: 56, height: 56, borderRadius: '50%', border: 'none', cursor: 'pointer',
-                    background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-                    boxShadow: '0 4px 20px rgba(99,102,241,0.4)', color: 'white',
+                    position: 'fixed', bottom: 32, right: 32, zIndex: 9998,
+                    width: 64, height: 64, borderRadius: '22px', border: 'none', cursor: 'pointer',
+                    background: 'var(--accent-blue)',
+                    boxShadow: 'var(--clay-shadow-outer), var(--clay-shadow-inner)',
+                    color: 'white',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}>
-                {open ? <X size={24} /> : <MessageCircle size={24} />}
+                {open ? <X size={28} /> : <MessageCircle size={28} />}
             </motion.button>
 
             {/* Chat Window */}
             <AnimatePresence>
                 {open && (
                     <motion.div
-                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 20, scale: 0.95 }}
+                        initial={{ opacity: 0, y: 50, scale: 0.9, rotate: -2 }}
+                        animate={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
+                        exit={{ opacity: 0, y: 50, scale: 0.9 }}
                         style={{
-                            position: 'fixed', bottom: 90, right: 24, zIndex: 9999,
-                            width: 380, maxWidth: 'calc(100vw - 48px)', height: 520, maxHeight: 'calc(100vh - 120px)',
-                            borderRadius: 24, overflow: 'hidden', display: 'flex', flexDirection: 'column',
-                            background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(24px)',
-                            border: '1px solid rgba(200,210,255,0.35)',
-                            boxShadow: '0 8px 40px rgba(99,102,241,0.15)',
+                            position: 'fixed', bottom: 110, right: 32, zIndex: 9999,
+                            width: 400, maxWidth: 'calc(100vw - 64px)', height: 600, maxHeight: 'calc(100vh - 150px)',
+                            borderRadius: '32px', overflow: 'hidden', display: 'flex', flexDirection: 'column',
+                            background: 'white',
+                            border: '1px solid var(--border-glass)',
+                            boxShadow: '0 30px 60px -20px rgba(0,0,0,0.15), var(--clay-shadow-inner)',
                         }}>
 
                         {/* Header */}

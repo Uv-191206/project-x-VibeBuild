@@ -29,18 +29,25 @@ export function AnimatedCounter({ end, duration = 2, label, icon }) {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="glass-card"
-            style={{ padding: '2rem', textAlign: 'center', flex: 1, minWidth: 200 }}
+            className="clay-card"
+            style={{
+                padding: '2.5rem',
+                textAlign: 'center',
+                flex: 1,
+                minWidth: 260,
+                background: 'white',
+                border: '1px solid var(--border-glass)'
+            }}
         >
-            <div style={{ fontSize: '2rem', marginBottom: 8 }}>{icon}</div>
+            <div style={{ fontSize: '2.5rem', marginBottom: 12 }}>{icon}</div>
             <div style={{
-                fontSize: '2.5rem', fontWeight: 800,
-                background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-                WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+                fontSize: '3rem', fontWeight: 900,
+                color: 'var(--accent-blue)',
+                textShadow: '2px 2px 4px rgba(0,0,0,0.05)'
             }}>
                 {label === 'Attendance' ? `${count}%` : count}
             </div>
-            <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginTop: 4, fontWeight: 500 }}>{label}</div>
+            <div style={{ color: 'var(--text-secondary)', fontSize: '1rem', marginTop: 8, fontWeight: 700 }}>{label}</div>
         </motion.div>
     );
 }
@@ -64,9 +71,17 @@ export function ScrollReveal({ children, delay = 0 }) {
 export function GlassCard({ children, style, hover = true, ...props }) {
     return (
         <motion.div
-            className="glass-card"
-            whileHover={hover ? { y: -4, boxShadow: '0 12px 40px rgba(99,102,241,0.15)' } : {}}
-            style={{ padding: '1.5rem', ...style }}
+            className="clay-card"
+            whileHover={hover ? {
+                y: -10,
+                scale: 1.02,
+                boxShadow: '0 25px 50px -12px rgba(108, 92, 231, 0.2), var(--clay-shadow-inner)'
+            } : {}}
+            style={{
+                padding: '2rem',
+                background: 'white',
+                ...style
+            }}
             {...props}
         >
             {children}

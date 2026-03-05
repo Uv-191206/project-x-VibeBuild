@@ -147,17 +147,19 @@ export default function GalleryPage() {
                                     onDrop={handleDrop}
                                     onClick={() => fileInputRef.current?.click()}
                                     style={{
-                                        border: `2px dashed ${dragOver ? '#6366f1' : 'rgba(99,102,241,0.25)'}`,
-                                        borderRadius: 16, padding: '2.5rem', textAlign: 'center',
-                                        cursor: 'pointer', transition: 'all 0.3s ease',
-                                        background: dragOver ? 'rgba(99,102,241,0.05)' : 'rgba(248,248,252,0.5)',
+                                        border: `3px dashed ${dragOver ? 'var(--accent-blue)' : 'var(--border-glass)'}`,
+                                        borderRadius: '24px', padding: '3.5rem', textAlign: 'center',
+                                        cursor: 'pointer', transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                                        background: dragOver ? 'var(--accent-blue-soft)' : '#f8faff',
+                                        boxShadow: 'var(--clay-shadow-inner)',
+                                        transform: dragOver ? 'scale(1.02)' : 'scale(1)',
                                     }}>
-                                    <FileUp size={40} color={dragOver ? '#6366f1' : '#a5b4fc'} style={{ marginBottom: 12 }} />
-                                    <p style={{ fontWeight: 600, fontSize: '0.95rem', margin: 0, color: 'var(--text-primary)' }}>
-                                        {dragOver ? 'Drop files here!' : 'Click to browse or drag & drop'}
+                                    <FileUp size={48} color={dragOver ? 'var(--accent-blue)' : '#a5b4fc'} style={{ marginBottom: 16 }} />
+                                    <p style={{ fontWeight: 800, fontSize: '1.1rem', margin: 0, color: 'var(--text-primary)' }}>
+                                        {dragOver ? 'Release to upload!' : 'Tap to browse or drop moments here'}
                                     </p>
-                                    <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', margin: '6px 0 0' }}>
-                                        Images (JPG, PNG, GIF, WebP) and Videos (MP4, WebM)
+                                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: '8px 0 0', fontWeight: 500 }}>
+                                        Photos & Videos from the workshop
                                     </p>
                                     <input ref={fileInputRef} type="file" multiple accept="image/*,video/*"
                                         onChange={handleFileSelect} style={{ display: 'none' }} />
@@ -220,62 +222,71 @@ export default function GalleryPage() {
                     </h3>
                 </GlassCard>
             ) : (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
                     {items.map((item, i) => (
                         <ScrollReveal key={item._id || i} delay={i * 0.04}>
-                            <GlassCard style={{ padding: 0, overflow: 'hidden', position: 'relative' }}>
+                            <div className="clay-card" style={{ padding: 0, overflow: 'hidden', position: 'relative', background: 'white' }}>
                                 {isAdmin && (
                                     <div style={{
-                                        position: 'absolute', top: 10, left: 10, zIndex: 2,
-                                        padding: '4px 10px', borderRadius: 12, fontSize: '0.72rem', fontWeight: 600,
-                                        background: item.publicVisible ? 'rgba(16,185,129,0.85)' : 'rgba(239,68,68,0.85)',
-                                        color: 'white', backdropFilter: 'blur(8px)',
+                                        position: 'absolute', top: 12, left: 12, zIndex: 2,
+                                        padding: '6px 12px', borderRadius: 14, fontSize: '0.75rem', fontWeight: 800,
+                                        background: item.publicVisible ? 'var(--accent-blue)' : '#ef4444',
+                                        color: 'white', border: '2px solid white',
                                     }}>
-                                        {item.publicVisible ? 'Visible' : 'Hidden'}
+                                        {item.publicVisible ? 'Live' : 'Hidden'}
                                     </div>
                                 )}
                                 {item.type === 'video' ? (
-                                    <video src={item.url} controls style={{ width: '100%', height: 200, objectFit: 'cover' }} />
+                                    <video src={item.url} controls style={{ width: '100%', height: 240, objectFit: 'cover' }} />
                                 ) : (
                                     <img src={item.url} alt={item.caption || item.filename}
-                                        style={{ width: '100%', height: 200, objectFit: 'cover', cursor: 'pointer' }}
+                                        style={{ width: '100%', height: 240, objectFit: 'cover', cursor: 'pointer' }}
                                         onClick={() => setLightbox(item)} />
                                 )}
-                                <div style={{ padding: '0.75rem 1rem' }}>
-                                    <p style={{ fontWeight: 600, fontSize: '0.88rem', margin: 0 }}>{item.caption || item.filename}</p>
-                                    <p style={{ color: 'var(--text-muted)', fontSize: '0.78rem', margin: '2px 0' }}>
+                                <div style={{ padding: '1.25rem' }}>
+                                    <p style={{ fontWeight: 800, fontSize: '1rem', margin: 0, color: 'var(--text-primary)' }}>{item.caption || item.filename}</p>
+                                    <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: '4px 0', fontWeight: 600 }}>
                                         {new Date(item.createdAt).toLocaleDateString()}
                                     </p>
-                                    <div style={{ display: 'flex', gap: 6, marginTop: 8 }}>
+                                    <div style={{ display: 'flex', gap: 10, marginTop: 15 }}>
                                         <a href={item.url} download={item.filename} target="_blank" rel="noopener noreferrer"
                                             style={{
-                                                padding: '6px 12px', borderRadius: 8, fontSize: '0.78rem', fontWeight: 500,
-                                                background: 'rgba(99,102,241,0.1)', color: 'var(--accent-blue)',
-                                                textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4,
-                                            }}>
-                                            <Download size={12} /> Download
+                                                padding: '8px 16px', borderRadius: 12, fontSize: '0.85rem', fontWeight: 700,
+                                                background: '#f0f4ff', color: 'var(--accent-blue)',
+                                                textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6,
+                                                transition: 'all 0.2s',
+                                                boxShadow: 'var(--clay-shadow-inner)'
+                                            }}
+                                            onMouseOver={e => e.currentTarget.style.background = 'var(--accent-blue-soft)'}
+                                            onMouseOut={e => e.currentTarget.style.background = '#f0f4ff'}
+                                        >
+                                            <Download size={14} /> GET
                                         </a>
                                         {isAdmin && (
                                             <>
                                                 <button onClick={() => handleToggleVisibility(item._id)}
                                                     style={{
-                                                        padding: '6px 10px', borderRadius: 8, border: 'none', cursor: 'pointer',
-                                                        background: item.publicVisible ? 'rgba(239,68,68,0.1)' : 'rgba(16,185,129,0.1)',
-                                                        color: item.publicVisible ? '#dc2626' : '#10b981', fontSize: '0.78rem',
-                                                        display: 'flex', alignItems: 'center', gap: 4,
+                                                        padding: '8px 12px', borderRadius: 12, border: 'none', cursor: 'pointer',
+                                                        background: '#f8f9fa',
+                                                        color: item.publicVisible ? '#ef4444' : '#10b981', fontSize: '0.85rem',
+                                                        fontWeight: 700, display: 'flex', alignItems: 'center', gap: 6,
+                                                        boxShadow: 'var(--clay-shadow-inner)'
                                                     }}>
-                                                    {item.publicVisible ? <EyeOff size={12} /> : <Eye size={12} />}
-                                                    {item.publicVisible ? 'Hide' : 'Show'}
+                                                    {item.publicVisible ? <EyeOff size={14} /> : <Eye size={14} />}
                                                 </button>
                                                 <button onClick={() => handleDelete(item._id)}
-                                                    style={{ padding: '6px', borderRadius: 8, background: 'rgba(239,68,68,0.1)', border: 'none', cursor: 'pointer', color: '#dc2626' }}>
+                                                    style={{
+                                                        padding: '8px 12px', borderRadius: 12, background: '#fff1f1',
+                                                        border: 'none', cursor: 'pointer', color: '#dc2626',
+                                                        boxShadow: 'var(--clay-shadow-inner)'
+                                                    }}>
                                                     <Trash2 size={14} />
                                                 </button>
                                             </>
                                         )}
                                     </div>
                                 </div>
-                            </GlassCard>
+                            </div>
                         </ScrollReveal>
                     ))}
                 </div>

@@ -160,26 +160,46 @@ export default function ShowcasePage() {
 
             {/* Controls */}
             <ScrollReveal>
-                <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
-                    <div style={{ position: 'relative', flex: '1 1 250px' }}>
-                        <Search size={18} style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
-                        <input className="glow-input" placeholder="Search projects..." value={search} onChange={e => setSearch(e.target.value)} style={{ paddingLeft: 42 }} />
+                <div style={{
+                    display: 'flex',
+                    gap: '1.5rem',
+                    marginBottom: '3rem',
+                    flexWrap: 'wrap',
+                    alignItems: 'center',
+                    background: 'white',
+                    padding: '1.5rem',
+                    borderRadius: '24px',
+                    boxShadow: 'var(--clay-shadow-outer), var(--clay-shadow-inner)',
+                    border: '1px solid var(--border-glass)'
+                }}>
+                    <div style={{ position: 'relative', flex: '1 1 300px' }}>
+                        <Search size={20} style={{ position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)', color: 'var(--accent-blue)' }} />
+                        <input
+                            className="glow-input"
+                            placeholder="Search projects by name, tech, or author..."
+                            value={search}
+                            onChange={e => setSearch(e.target.value)}
+                            style={{ paddingLeft: 48, background: '#f8faff' }}
+                        />
                     </div>
-                    <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+                    <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                        <span style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--text-secondary)', marginRight: 4, display: 'flex', alignItems: 'center' }}>
+                            <Layers size={18} style={{ marginRight: 6 }} /> Filter:
+                        </span>
                         {DOMAINS.map(d => (
                             <button key={d} onClick={() => setDomainFilter(d)}
                                 style={{
-                                    padding: '8px 14px', borderRadius: 20, cursor: 'pointer', fontWeight: 500, fontSize: '0.82rem',
-                                    border: '1px solid var(--border-glass)',
-                                    background: domainFilter === d ? 'var(--accent-blue)' : 'rgba(255,255,255,0.6)',
-                                    color: domainFilter === d ? 'white' : 'var(--text-secondary)',
-                                    transition: 'all 0.2s',
+                                    padding: '10px 20px', borderRadius: 14, cursor: 'pointer', fontWeight: 700, fontSize: '0.85rem',
+                                    border: 'none',
+                                    background: domainFilter === d ? 'var(--accent-blue)' : '#f0f4ff',
+                                    color: domainFilter === d ? 'white' : 'var(--accent-blue)',
+                                    boxShadow: domainFilter === d ? '0 4px 12px rgba(72, 52, 212, 0.3)' : 'inset 2px 2px 4px rgba(0,0,0,0.02)',
+                                    transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                                 }}>
                                 {d}
                             </button>
                         ))}
                     </div>
-
                 </div>
             </ScrollReveal>
 

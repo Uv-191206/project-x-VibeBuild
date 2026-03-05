@@ -97,46 +97,52 @@ export default function CertificatesPage() {
             {/* Add Certificate Form */}
             <AnimatePresence>
                 {showAdd && isAdmin && (
-                    <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} style={{ overflow: 'hidden' }}>
-                        <GlassCard hover={false} style={{ marginBottom: '1.5rem' }}>
-                            <h3 style={{ fontWeight: 700, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: 8 }}>
-                                <Award size={18} color="#f59e0b" /> Issue New Certificate
+                    <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} style={{ overflow: 'hidden', marginBottom: '3rem' }}>
+                        <div style={{
+                            background: 'white',
+                            padding: '2.5rem',
+                            borderRadius: '32px',
+                            boxShadow: 'var(--clay-shadow-outer), var(--clay-shadow-inner)',
+                            border: '1px solid var(--border-glass)'
+                        }}>
+                            <h3 style={{ fontWeight: 800, fontSize: '1.5rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: 12, color: 'var(--accent-blue)' }}>
+                                <Award size={24} /> Issue New Certificate
                             </h3>
                             <form onSubmit={handleAdd}>
-                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
                                     <div>
-                                        <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, marginBottom: 6, color: 'var(--text-secondary)' }}>
-                                            <User size={14} style={{ display: 'inline', verticalAlign: 'middle', marginRight: 4 }} />
-                                            Student Name *
+                                        <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 800, marginBottom: 10, color: 'var(--text-secondary)' }}>
+                                            <User size={16} style={{ display: 'inline', verticalAlign: 'middle', marginRight: 6 }} />
+                                            Student Name
                                         </label>
                                         <input className="glow-input" placeholder="e.g. John Doe" value={form.studentName} onChange={e => setForm(f => ({ ...f, studentName: e.target.value }))} required />
                                     </div>
                                     <div>
-                                        <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, marginBottom: 6, color: 'var(--text-secondary)' }}>
-                                            <Hash size={14} style={{ display: 'inline', verticalAlign: 'middle', marginRight: 4 }} />
-                                            Student ID *
+                                        <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 800, marginBottom: 10, color: 'var(--text-secondary)' }}>
+                                            <Hash size={16} style={{ display: 'inline', verticalAlign: 'middle', marginRight: 6 }} />
+                                            Student ID
                                         </label>
                                         <input className="glow-input" placeholder="e.g. 25EC080" value={form.studentId} onChange={e => setForm(f => ({ ...f, studentId: e.target.value.toUpperCase() }))} required />
                                     </div>
                                     <div>
-                                        <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, marginBottom: 6, color: 'var(--text-secondary)' }}>Certificate Type</label>
-                                        <select className="glow-input" value={form.certificateType} onChange={e => setForm(f => ({ ...f, certificateType: e.target.value }))}>
+                                        <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 800, marginBottom: 10, color: 'var(--text-secondary)' }}>Certificate Type</label>
+                                        <select className="glow-input" value={form.certificateType} onChange={e => setForm(f => ({ ...f, certificateType: e.target.value }))} style={{ appearance: 'none' }}>
                                             <option value="participation">Participation</option>
                                             <option value="completion">Completion</option>
                                             <option value="excellence">Excellence</option>
                                         </select>
                                     </div>
                                     <div>
-                                        <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, marginBottom: 6, color: 'var(--text-secondary)' }}>Certificate URL</label>
+                                        <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 800, marginBottom: 10, color: 'var(--text-secondary)' }}>Certificate URL</label>
                                         <input className="glow-input" placeholder="https://drive.google.com/..." value={form.certificateUrl} onChange={e => setForm(f => ({ ...f, certificateUrl: e.target.value }))} type="url" />
                                     </div>
                                 </div>
-                                <motion.button type="submit" className="glow-btn" disabled={submitting} whileTap={{ scale: 0.98 }}
-                                    style={{ marginTop: '1rem', padding: '12px 24px', display: 'flex', alignItems: 'center', gap: 8 }}>
-                                    <Award size={16} /> {submitting ? 'Issuing...' : 'Issue Certificate'}
+                                <motion.button type="submit" className="glow-btn" disabled={submitting} whileTap={{ scale: 0.95 }}
+                                    style={{ marginTop: '2rem', padding: '16px 40px', display: 'flex', alignItems: 'center', gap: 10, fontSize: '1.1rem' }}>
+                                    <Award size={20} /> {submitting ? 'Issuing...' : 'Issue Certificate'}
                                 </motion.button>
                             </form>
-                        </GlassCard>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
