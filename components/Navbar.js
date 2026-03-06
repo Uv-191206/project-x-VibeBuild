@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Menu, X, Home, Globe, HelpCircle } from 'lucide-react';
+import { Menu, X, Home, Globe, HelpCircle, FileText, Image as ImageIcon } from 'lucide-react';
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -11,7 +11,9 @@ export default function Navbar() {
     const links = [
         { href: '/', label: 'Home', icon: Home },
         { href: '/showcase', label: 'Showcase', icon: Globe },
+        { href: '/report', label: 'Report', icon: FileText },
         { href: '/faq', label: 'FAQ', icon: HelpCircle },
+        { href: '/gallery', label: 'Gallery', icon: ImageIcon },
     ];
 
     return (

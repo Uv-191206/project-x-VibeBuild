@@ -66,12 +66,22 @@ export default function Footer() {
                     {/* Student Coordinators */}
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
                         <h4 style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '1.5rem', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: 10 }}>
-                            <Users size={20} color="var(--accent-purple)" /> Student Team
+                            <Users size={20} color="var(--accent-purple)" /> Student Coordinators
                         </h4>
                         <div style={{ display: 'grid', gap: '1.25rem' }}>
                             {[
-                                { name: 'Jeet Patel', email: 'jeetpatel.sms@gmail.com', linkedin: 'https://www.linkedin.com/in/jeet-patel-b393b4238/', github: 'https://github.com/jeetptl1503' },
-                                { name: 'Yuvrajsinh Rathod', email: '25ec112@charusat.edu.in', linkedin: 'https://www.linkedin.com/in/yuvrajsinh-rathod-116533372/', github: 'https://github.com/Uv-191206' },
+                                {
+                                    name: 'Jeet Patel',
+                                    email: '25ec080@charusat.edu.in',
+                                    linkedin: 'https://www.linkedin.com/in/jeet-patel-b393b4238/',
+                                    github: 'https://github.com/jeetptl1503'
+                                },
+                                {
+                                    name: 'Yuvrajsinh Rathod',
+                                    email: '25ec112@charusat.edu.in',
+                                    linkedin: 'https://www.linkedin.com/in/yuvrajsinh-rathod-116533372/',
+                                    github: 'https://github.com/Uv-191206'
+                                },
                             ].map((coord, i) => (
                                 <div key={i} style={{
                                     padding: '1.25rem', borderRadius: '20px',
@@ -79,8 +89,8 @@ export default function Footer() {
                                     boxShadow: 'var(--clay-shadow-inner)',
                                 }}>
                                     <p style={{ fontWeight: 800, fontSize: '0.95rem', marginBottom: 6 }}>{coord.name}</p>
+                                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', marginBottom: 8, fontWeight: 500 }}>{coord.email}</p>
                                     <div style={{ display: 'flex', gap: '1rem', marginTop: 8 }}>
-                                        <a href={`mailto:${coord.email}`} style={{ color: 'var(--text-secondary)' }}><Mail size={16} /></a>
                                         <a href={coord.linkedin} target="_blank" rel="noopener noreferrer" style={{ color: '#0077B5' }}><Linkedin size={16} /></a>
                                         <a href={coord.github} target="_blank" rel="noopener noreferrer" style={{ color: '#333' }}><Github size={16} /></a>
                                     </div>

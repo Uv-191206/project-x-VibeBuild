@@ -125,7 +125,7 @@ export default function HomePage() {
               { icon: <Code2 size={32} />, title: 'Prompt Engineering', desc: 'Learn to talk to AI and get pixel-perfect results every time.' },
               { icon: <Brain size={32} />, title: 'Deep Intelligence', desc: 'Integrate LLMs into your core application logic seamlessly.' },
               { icon: <Users size={32} />, title: 'Collaborative Vibe', desc: 'Build with others in a high-energy, AI-first environment.' },
-              { icon: <Trophy size={32} />, title: 'Premium Assets', desc: 'Get access to high-res mockups and professional templates.' },
+              { icon: <Sparkles size={32} />, title: 'Custom Designs', desc: 'Seamless user experience with re-usable UI designs.' },
             ].map((feature, i) => (
               <GlassCard key={i} style={{ textAlign: 'center', padding: '3rem 2rem' }}>
                 <motion.div
@@ -151,11 +151,11 @@ export default function HomePage() {
       {/* Live Stats */}
       <ScrollReveal delay={0.2}>
         <section style={{ marginBottom: '6rem' }}>
-          <h2 className="section-title" style={{ textAlign: 'center', color: 'var(--accent-blue)' }}>📊 Global Impact</h2>
-          <p className="section-subtitle" style={{ textAlign: 'center', fontWeight: 500 }}>The workshop by the numbers</p>
+          <h2 className="section-title" style={{ textAlign: 'center', color: 'var(--accent-blue)' }}>📊 Workshop stats</h2>
+          <p className="section-subtitle" style={{ textAlign: 'center', fontWeight: 500 }}>surface details of project stats</p>
           <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <AnimatedCounter end={stats.totalProjects} label="Innovative Apps" icon="✨" />
-            <AnimatedCounter end={stats.totalLOC} label="Generated Lines" icon="🤖" />
+            <AnimatedCounter end={stats.totalProjects} label="Submitted Web-Applications" icon="✨" />
+            <AnimatedCounter end={stats.totalLOC} label="👏 Lines of Zero Hand written Code.👏" icon="🤖" />
           </div>
         </section>
       </ScrollReveal>
