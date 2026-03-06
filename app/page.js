@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Rocket, Code2, Brain, Users, Trophy, ArrowRight, Sparkles, Zap, Globe } from 'lucide-react';
 
 export default function HomePage() {
-  const [stats, setStats] = useState({ totalProjects: 12, totalLOC: 28450 });
+  const [stats, setStats] = useState({ totalProjects: 12, totalLOC: 33372 });
 
   useEffect(() => {
     // Static stat simulation if needed

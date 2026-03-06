@@ -58,8 +58,8 @@ export default function GalleryPage() {
                     </div>
 
                     <a
-                        href="/gallery.zip"
-                        download="Workshop_Gallery_Photos.zip"
+                        href="/photos_workshop.zip"
+                        download="photos_workshop.zip"
                         className="glow-btn"
                         style={{
                             padding: '10px 20px',

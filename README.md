@@ -42,8 +42,9 @@ The following projects were built during the workshop:
 | 📊 **Dashboard** | Countdown timer, progress tracker, team creation, project submission with confetti |
 | 🌍 **Project Showcase** | Public grid with domain filters, search, hover animations & student submission form |
 | 🤖 **AI Chatbot** | Floating assistant with OpenAI integration + built-in fallback guides for GitHub & Vercel deployment |
-| 📈 **LOC Counter** | Real-time tracking of lines of code written across all participant projects |
-| 🖼️ **Gallery** | Masonry layout with lightbox, video model & admin upload/approval system |
+| 📈 **LOC Counter** | Real-time tracking of lines of code written across all participant projects (33,370+ lines) |
+| 🖼️ **Gallery** | Dynamic Panorama view with auto-swiping, lightbox, and high-res photo download |
+| 📄 **Reports** | Centralized PDF report preview (workshop_report.pdf) with inline download feature |
 | 📋 **Attendance** | Admin CRUD with first/second half toggles & CSV export |
 | 🎓 **Certificates** | Admin-issued certificates (name, ID, type) with PDF generation & QR code |
 
